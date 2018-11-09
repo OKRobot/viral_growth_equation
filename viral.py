@@ -50,7 +50,7 @@ def main(args):
     plt.ylabel("New users")
 
 
-    plt.plot(day_t, user_t)
+    plt.plot(day_t, user_t, marker='o', linestyle='--')
     plt.show()
 
 
