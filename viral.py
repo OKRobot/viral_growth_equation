@@ -29,17 +29,19 @@ def main(args):
     invites = args.invitations
     conv = args.conversion_rate
     ct = args.cycle_time
-    users = args.starting_users
+    starting_users = args.starting_users
     days = args.days
 
     k = invites*conv
-    max_cycles = math.floor(days/ct)
+    max_cycles = math.floor(days/ct) + 1
     user_t = np.zeros(max_cycles) 
     day_t = np.linspace(0,days,num=max_cycles)
-    user_t[0] = users
 
     for ix in range(max_cycles):
-        users = round(users*k)
+        if ix == 0:
+            users = starting_users
+        else:
+            users = round(users*k)
         user_t[ix] = users
 
     plt.title("Users over time with i={}, conv={}, ct={}".format(invites,conv,ct))
