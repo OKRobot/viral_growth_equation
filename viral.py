@@ -44,7 +44,7 @@ def main(args):
             users = round(users*k)
         user_t[ix] = users
 
-    plt.title("New users over time with i={}, conv={}, ct={}".format(invites,conv,ct))
+    plt.title("New users over time with k={} ct={}".format(k,ct))
     plt.xlabel("Days")
     plt.ylabel("New users")
 
