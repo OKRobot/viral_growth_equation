@@ -10,13 +10,13 @@ def parse_arguments():
     # Command-line flags are defined here.
     parser = argparse.ArgumentParser()
     parser.add_argument('--i', dest='invitations', type=int,
-                        default=2, help="Invitations sent per user.")
+                        default=2, help="Invitations sent per new user.")
     parser.add_argument('--conv', dest='conversion_rate', type=float,
                         default=0.25, help="The chance an invitation will convert a new user")
     parser.add_argument('--ct', dest='cycle_time', type=float,
                         default=5, help="The cycle time in days")
     parser.add_argument('--starting-users', dest='starting_users', type=int,
-                        default=2, help="The number of users at cycle 0.")
+                        default=2, help="The number of new users at cycle 0.")
     parser.add_argument('--days', dest='days', type=int,
                         default=50, help="The number of days to plot")
 
@@ -44,9 +44,9 @@ def main(args):
             users = round(users*k)
         user_t[ix] = users
 
-    plt.title("Users over time with i={}, conv={}, ct={}".format(invites,conv,ct))
+    plt.title("New users over time with i={}, conv={}, ct={}".format(invites,conv,ct))
     plt.xlabel("Days")
-    plt.ylabel("Users")
+    plt.ylabel("New users")
 
 
     plt.plot(day_t, user_t)
